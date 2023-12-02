@@ -1,1 +1,9 @@
 .pytest_cache/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# jupyter notebook / lab
+.ipynb_checkpoints/
