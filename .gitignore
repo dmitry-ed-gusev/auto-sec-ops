@@ -1,2 +1,11 @@
-###  ###
-.pytest_cache
+### Catalogs for dokerized applications ###
+.gitlab/
+
+### Byte-compiled / optimized / DLL files ###
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+### Jupyter notebook / lab ###
+.ipynb_checkpoints/

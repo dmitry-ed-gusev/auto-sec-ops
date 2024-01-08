@@ -90,3 +90,18 @@ For open source projects, say how it is licensed.
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Docker Hub
+
+TBD
+
+## GitLab EE/CE
+
+[GitLab Home](https://about.gitlab.com/)
+[GitLab Docker Installation](https://docs.gitlab.com/ee/install/docker.html)
+[GitLab Docker Hub Images](https://hub.docker.com/r/gitlab/gitlab-ee/tags)
+[Install GitLab in docker](https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/)
+[Install GitLab in docker (Habr)](https://habr.com/ru/companies/timeweb/articles/680594/)
+
+## Postgresql DBMS
+
+TBD
