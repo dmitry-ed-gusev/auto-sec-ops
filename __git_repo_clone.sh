@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 ###################################################################################################
 #
-#   General python environment setup/reset script. Script can be used to re-create python
-#   general/global environment from 'scratch' or to get rid of some 'garbage' packages- unnesessary
-#   installed modules. After the cleanup, script installs the following basic libraries:
-#       - pipenv
-#       - jupyter
-#       - pytest
+#   Clone git repository by provided URL. Repo URL should be provided as cmd line parameter.
 #
 #   This script works under following environments:
 #       - MacOS, 10.14+
@@ -26,8 +21,10 @@ set -euf -o pipefail
 
 # -- general setup - some variables
 export LANG='en_US.UTF-8'
-TMP_FILE="req.txt"
 
+# -- check repo URL provided
+
+# -- starting script
 clear
 printf "Python Development Environment setup is starting...\n\n"
 
