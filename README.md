@@ -102,6 +102,13 @@ TBD
 [Install GitLab in docker](https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/)
 [Install GitLab in docker (Habr)](https://habr.com/ru/companies/timeweb/articles/680594/)
 
+http://snakeproject.ru/rubric/article.php?art=gitlab_docker_03_02_2022
+https://forum.gitlab.com/t/example-gitlab-runner-docker-compose-configuration/67344
+https://www.heyvaldemar.com/install-gitlab-using-docker-compose/
+https://mpolinowski.github.io/docs/DevOps/GitOps/2022-03-16--gitlab-docker-compose-on-localhost/2022-03-16/
+https://www.atlantic.net/dedicated-server-hosting/how-to-install-gitlab-with-docker-and-docker-compose-on-arch-linux/
+https://www.heyvaldemar.net/ustanovka-gitlab-s-ispolzovaniem-docker-compose/
+
 ## Postgresql DBMS
 
 TBD
