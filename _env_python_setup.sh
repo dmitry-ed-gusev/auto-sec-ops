@@ -72,7 +72,7 @@ if [[ $MACHINE == 'Cygwin' || $MACHINE == 'MinGW' ]]; then # cygwin/mingw
 else # linux/macos
 
     printf "\n\n--- We're on linux - processing TBD... ---\n"
-    # todo: use user local dependencies? -> for linux
+    # TODO: use user local dependencies? -> for linux
 
 fi
 
