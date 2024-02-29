@@ -2,28 +2,49 @@
 
 ###############################################################################
 #
-#       Sonar Docker environment initialization script.
-#       Script runs MySql and Sonar containers in same network.
+#   Development Lab environment script. The current script sets up the
+#   following services:
+#       - docker network for all services
+#       - GitLab service container
+#       - MySql and Sonar containers in the mentioned network
+#       - ???
 #
-#       Created:  Dmitrii Gusev, 30.03.2019
-#       Modified: Dmitrii Gusev, 30.03.2019
+#   Created:  Dmitrii Gusev, 30.03.2019
+#   Modified: Dmitrii Gusev, 21.01.2024
 #
 ###############################################################################
 
-# environment variables
-DOCKER_NETWORK=mynetwork
-SONAR_IMAGE_NAME=sonarqube:latest
-SONAR_CONTAINER_NAME=sonar
-MYSQL_IMAGE_NAME=mysql:5.7
-MYSQL_CONTAINER_NAME=mysql.5.7
-MYSQL_ROOT_PASS=root
-MYSQL_DB=sonar
-MYSQL_USER=sonar
-MYSQL_PASS=sonar
+# -- Set bash strict mode
+set -euo pipefail
+IFS=$'\n\t'
+
+# -- General environment variables setup
+
+# --- docker setup
+export DOCKER_NETWORK=dev_lab_network
+
+# --- gitlab setup
+
+# --- sonar setup
+# SONAR_IMAGE_NAME=sonarqube:latest
+# SONAR_CONTAINER_NAME=sonar
+
+# --- mysql for sonar setup
+# MYSQL_IMAGE_NAME=mysql:5.7
+# MYSQL_CONTAINER_NAME=mysql.5.7
+# MYSQL_ROOT_PASS=root
+# MYSQL_DB=sonar
+# MYSQL_USER=sonar
+# MYSQL_PASS=sonar
 
 # Create docker network for mysql and sonar (remove if exists and create)
-docker network rm ${DOCKER_NETWORK}
+printf "Creating docker network: %s\n" ${DOCKER_NETWORK}
+docker network rm ${DOCKER_NETWORK} || printf "Network %s not found!\n" ${DOCKER_NETWORK}
 docker network create ${DOCKER_NETWORK}
+
+docker network list | grep \"${DOCKER_NETWORK}\"
+ #[[ -n "docker network list | grep \"${DOCKER_NETWORK}\"" ]] && echo 
+exit 1
 
 # Simple first run (init) of new/clean Mysql container instance.
 # Root password will be set to: root. DB to be created: sonar, user to be crated: sonar/sonar.

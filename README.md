@@ -109,6 +109,10 @@ https://mpolinowski.github.io/docs/DevOps/GitOps/2022-03-16--gitlab-docker-compo
 https://www.atlantic.net/dedicated-server-hosting/how-to-install-gitlab-with-docker-and-docker-compose-on-arch-linux/
 https://www.heyvaldemar.net/ustanovka-gitlab-s-ispolzovaniem-docker-compose/
 
+## SonarQube
+
+https://github.com/SonarSource/docker-sonarqube/tree/master
+
 ## Postgresql DBMS
 
 TBD
