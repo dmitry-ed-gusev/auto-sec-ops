@@ -101,7 +101,11 @@ printf "\n\n ** installing core dependencies - done **\n"
 # -- installing poetry
 printf "\n--- Installing [poetry] with [pipx] ---\n"
 pipx install poetry --force
+pipx ensurepath --force # update PATH with installed binaries
+# TODO: first time install - PATH isn't updated in the same terminal session - the
+# TODO:   following command will fail!
 poetry config virtualenvs.path ~/.virtualenvs # poetry to store virtual environments with virtualenv
+
 # -- installing poetry shell autocomplete
 if [[ $MACHINE == 'Cygwin' || $MACHINE == 'MinGW' ]]; then
 
