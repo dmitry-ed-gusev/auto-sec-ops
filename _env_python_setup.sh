@@ -4,18 +4,19 @@
 #   General python environment setup/reset script. Script can be used to re-create python
 #   general/global environment from 'scratch' or to get rid of some 'garbage' packages- unnecessary
 #   installed modules. After the cleanup, script installs the following basic libraries: pipenv,
-#   jupyter, pytest, pipx
+#   jupyter, pytest, pipx, poetry (using pipx).
 #
 #   This script works under following environments:
-#       - MacOS, 10.14+
-#       - Windows GitBash/MinGW
-#       - TBD -> linux debian
-#       - TBD -> linux red hat
+#       - MacOS, 10.14+ (ok, tested)
+#       - Windows GitBash/MinGW (ok, tested)
+#       - TBD -> linux debian (not tested)
+#       - TBD -> linux red hat (not tested)
 #
-#   Warning: script must be used (run) from shell, not from the virtual environment (pipenv shell).
+#   Warning: script MUST be used (run) from shell, not from the virtual environment (pipenv or any
+#   other kind of shell).
 #
 #   Created:  Dmitrii Gusev, 30.01.2022
-#   Modified: Dmitrii Gusev, 14.02.2024
+#   Modified: Dmitrii Gusev, 19.03.2024
 #
 ###################################################################################################
 
@@ -31,7 +32,7 @@ printf "Python Development Environment setup is starting...\n\n"
 
 # -- setup some commands aliases, depending on the machine type
 unameOut="$(uname -s)" # get machine name (short)
-# - based on the machine type - setup aliases
+# - based on the machine type - setup aliases for python/pip
 case "${unameOut}" in
     Linux*)     MACHINE=Linux; CMD_PYTHON=python3; CMD_PIP=pip3;;
     Darwin*)    MACHINE=Mac; CMD_PYTHON=python3; CMD_PIP=pip3;;
@@ -53,7 +54,7 @@ sleep 2
 # -- freeze current global dependencies
 if [[ $MACHINE == 'Cygwin' || $MACHINE == 'MinGW' ]]; then # cygwin/mingw
 
-    printf "\n\n--- Cleanup dependencies. ---\n"
+    printf "\n\n--- CYGWIN/MINGW: cleanup dependencies + re-install ---\n"
     printf "\n\n--- Freezing dependencies to the [%s] file ---\n" ${TMP_FILE}
     ${CMD_PIP} freeze > ${TMP_FILE}
     printf "\n\n ** freezing the current dependencies to the [%s] file - done **\n\n" ${TMP_FILE}
@@ -80,6 +81,26 @@ fi
 printf "\n--- Installing (if not installed) and upgrading core dependencies to the global env ---\n\n"
 ${CMD_PIP} --no-cache-dir install pipenv pytest jupyter pipx
 ${CMD_PIP} --no-cache-dir install --upgrade pipenv pytest jupyter pipx
+pipx ensurepath --force # execute pipx ensurepath - all pipx binaries to be on PATH
+
+# -- install pipx shell autocomplete
+if [[ $MACHINE == 'Cygwin' || $MACHINE == 'MinGW' ]]; then
+
+    printf "\n--- MINGW/CYGWIN: installing terminal autocomplete ---\n\n"
+    eval "$(register-python-argcomplete pipx)"
+    printf "\n** Autocomplete for pipx installed. **\n"
+
+else # linux/macos
+
+    printf "\n\n--- We're on linux - autocomplete TBD... ---\n"
+    # TODO: pipx autocomplete for linux - ???
+
+fi
 printf "\n\n ** installing core dependencies - done **\n"
 
+# -- install poetry
+printf "\n--- Installing [poetry] with [pipx] ---\n"
+pipx install poetry --force
+
+# -- end of the script
 printf "\n\nPython Development Environment setup is done.\n\n\n"
