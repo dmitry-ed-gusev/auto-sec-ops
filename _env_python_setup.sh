@@ -3,8 +3,8 @@
 #
 #   General python environment setup/reset script. Script can be used to re-create python
 #   general/global environment from 'scratch' or to get rid of some 'garbage' packages- unnecessary
-#   installed modules. After the cleanup, script installs the following basic libraries: pipenv,
-#   jupyter, pytest, pipx, poetry (using pipx).
+#   installed modules. After the cleanup, script installs the following basic libraries: virtualenv,
+#   pipenv, jupyter, pytest, pipx, poetry (using pipx).
 #
 #   This script works under following environments:
 #       - MacOS, 10.14+ (ok, tested)
@@ -79,8 +79,8 @@ fi
 
 # -- install necessary dependencies
 printf "\n--- Installing (if not installed) and upgrading core dependencies to the global env ---\n\n"
-${CMD_PIP} --no-cache-dir install pipenv pytest jupyter pipx
-${CMD_PIP} --no-cache-dir install --upgrade pipenv pytest jupyter pipx
+${CMD_PIP} --no-cache-dir install virtualenv pipenv pytest jupyter pipx
+${CMD_PIP} --no-cache-dir install --upgrade virtualenv pipenv pytest jupyter pipx
 pipx ensurepath --force # execute pipx ensurepath - all pipx binaries to be on PATH
 
 # -- install pipx shell autocomplete
@@ -98,9 +98,27 @@ else # linux/macos
 fi
 printf "\n\n ** installing core dependencies - done **\n"
 
-# -- install poetry
+# -- installing poetry
 printf "\n--- Installing [poetry] with [pipx] ---\n"
 pipx install poetry --force
+poetry config virtualenvs.path ~/.virtualenvs # poetry to store virtual environments with virtualenv
+# -- installing poetry shell autocomplete
+if [[ $MACHINE == 'Cygwin' || $MACHINE == 'MinGW' ]]; then
+
+    printf "\n--- MINGW/CYGWIN: installing terminal autocomplete ---\n\n"
+    poetry completions bash >> ~/.bash_completion
+    printf "\n** Autocomplete for poetry installed. **\n\n"
+
+else # linux/macos
+
+    printf "\n\n--- We're on linux - autocomplete TBD... ---\n\n"
+    # TODO: pipx autocomplete for linux - ???
+
+fi
+# -- show poetry config
+poetry config --list
+sleep 5
+printf "\n\n ** installing poetry - done **\n"
 
 # -- end of the script
 printf "\n\nPython Development Environment setup is done.\n\n\n"
