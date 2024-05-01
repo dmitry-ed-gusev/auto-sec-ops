@@ -9,3 +9,6 @@ __pycache__/
 
 ### Jupyter notebook / lab ###
 .ipynb_checkpoints/
+
+###
+docker-compose-lab/data/
