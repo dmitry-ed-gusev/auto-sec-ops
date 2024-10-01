@@ -1,24 +1,25 @@
 #!/usr/bin/env bash
-###################################################################################################
+
+#############################################################################################################
 #
-#   General python environment setup/reset script. Script can be used to re-create python
-#   general/global environment from 'scratch' or to get rid of some 'garbage' packages- unnecessary
-#   installed modules. After the cleanup, script installs the following basic libraries: virtualenv,
-#   pipenv, jupyter, pytest, pipx, poetry (using pipx).
+#   General python environment setup/reset script. Script can be used to re-create python general/global
+#   environment from 'scratch' or to get rid of some 'garbage' packages - unnecessary installed modules.
+#   After the cleanup, script globally installs the following basic libraries: virtualenv, pipenv, jupyter,
+#   pytest, pipx, poetry (using pipx) with ensurepath and bash autocomplete options.
 #
 #   This script works under following environments:
 #       - MacOS, 10.14+ (ok, tested)
 #       - Windows GitBash/MinGW (ok, tested)
-#       - TBD -> linux debian (not tested)
-#       - TBD -> linux red hat (not tested)
+#       - TBD -> linux debian/red hat (run on your own risk! not tested!)
 #
-#   Warning: script MUST be used (run) from shell, not from the virtual environment (pipenv or any
-#   other kind of shell).
+#   Warning: script MUST be executed from shell, not from the virtual environment (pipenv or any other).
 #
 #   Created:  Dmitrii Gusev, 30.01.2022
-#   Modified: Dmitrii Gusev, 19.03.2024
+#   Modified: Dmitrii Gusev, 05.05.2024
 #
-###################################################################################################
+#   cspell:ignore pipx, virtualenv, virtualenvs, ensurepath, argcomplete
+#
+#############################################################################################################
 
 # -- safe bash scripting
 set -euf -o pipefail
@@ -40,7 +41,7 @@ printf "Python Development Environment setup is starting...\n\n"
 unameOut="$(uname -s)" # get machine name (short)
 # - based on the machine type - setup aliases for python/pip
 case "${unameOut}" in
-    Linux*)     MACHINE=Linux; CMD_PYTHON=python3; CMD_PIP=pip3;; 
+    Linux*)     MACHINE=Linux; CMD_PYTHON=python3; CMD_PIP=pip3;;
     Darwin*)    MACHINE=Mac; CMD_PYTHON=python3; CMD_PIP=pip3;;
     CYGWIN*)    MACHINE=Cygwin; CMD_PYTHON=python; CMD_PIP=pip;;
     MINGW*)     MACHINE=MinGW; CMD_PYTHON=python; CMD_PIP=pip;;
@@ -64,7 +65,7 @@ printf "\n\n ** upgrading PIP+SETUPTOOLS - done **\n"
 sleep 2
 
 # -- freeze current global dependencies and re-install. Now works only for gitbash/mingw.
-# --   TODO: do we need it for macos/linux? 
+# --   TODO: do we need it for macos/linux?
 if [[ $MACHINE == 'Cygwin' || $MACHINE == 'MinGW' ]]; then # cygwin/mingw
 
     printf "\n\n--- CYGWIN/MINGW: cleanup dependencies + re-install ---\n"
@@ -124,6 +125,7 @@ else # linux/macos
     printf "\n\n--- We're on linux - autocomplete TBD... ---\n\n"
     # TODO: pipx autocomplete for linux - ???
 fi
+
 # -- show poetry config
 poetry config --list
 sleep 5
