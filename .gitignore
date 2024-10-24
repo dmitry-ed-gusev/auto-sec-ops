@@ -12,3 +12,6 @@ __pycache__/
 
 ###
 docker-compose-lab/data/
+
+### python virtual environment
+.venv
