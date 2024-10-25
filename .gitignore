@@ -15,3 +15,6 @@ docker-compose-lab/data/
 
 ### python virtual environment
 .venv
+
+### temporary files
+temp/111/
