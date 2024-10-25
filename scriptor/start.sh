@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python src/scriptor/k8s.py
+python src/scriptor/kubernetes/k8s.py
