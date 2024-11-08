@@ -10,11 +10,11 @@ __pycache__/
 ### Jupyter notebook / lab ###
 .ipynb_checkpoints/
 
-###
+### Docker Compose unnecessary files ###
 docker-compose-lab/data/
 
-### python virtual environment
+### Python Virtual environments ###
 .venv
 
-### temporary files
+### Various temporary files ###
 temp/111/
