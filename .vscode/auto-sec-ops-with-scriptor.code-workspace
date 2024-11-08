@@ -1,0 +1,14 @@
+{
+
+    "folders": [
+      {
+        "path": "..",
+        "name": "Auto-Sec-Ops :: Root",
+      },
+      {
+        "path": "../scriptor",
+        "name": "Auto-Sec-Ops :: SAM (Scriptor Automation Module)",
+      },
+    ],
+  
+  }

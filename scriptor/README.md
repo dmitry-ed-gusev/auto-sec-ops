@@ -14,9 +14,9 @@ TBD
 
 ### Setup virtual environment
 
-- `python -m pip install `
+- `python -m pip install --upgrade pip`
 - `pip install --upgrade <package>`
-- `pip list outdated`
+- `pip list --outdated`
 - ``
 - ``
 - ``

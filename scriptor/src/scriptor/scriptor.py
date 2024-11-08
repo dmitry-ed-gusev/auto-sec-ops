@@ -10,4 +10,4 @@
 
 from loguru import logger
 
-logger.info("Scriptor Automation Module [SAM] is starting...")
+logger.info("Scriptor Automation Module [SAM] is starting... adfdfdfdasfdsfasdfasdfasdfasdfas")
