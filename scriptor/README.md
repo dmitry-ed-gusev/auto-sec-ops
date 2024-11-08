@@ -1,20 +1,33 @@
 # Scriptor Automation Module
 
-Dmitrii Gusev, 2024-????
+Dmitrii Gusev, 2018-2024
 
 [TOC]
 
-Usefule resources see [here]().
+Useful tech resources see [here](./../techlinks.md).
 
-## Installation
+## Module Installation
 
 TBD
+
+## Dev Environment Setup
+
+### Setup virtual environment
+
+- `python -m pip install `
+- `pip install --upgrade <package>`
+- `pip list outdated`
+- ``
+- ``
+- ``
 
 ## Usage
 
 TBD
 
 ## Tech Stack
+
+TBD
 
 ### Kubernetes (k8s)
 

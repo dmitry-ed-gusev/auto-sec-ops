@@ -2,10 +2,12 @@
 # -*- coding=utf-8 -*-
 
 """
-    Scriptor Utility main file (entry point).
+    Scriptor Automation Module [SAM] entry point script.
 
     Created:  Dmitrii Gusev, 05.11.2024
-    Modified:
+    Modified: Dmitrii Gusev, 08.11.2024
 """
 
 from loguru import logger
+
+logger.info("Scriptor Automation Module [SAM] is starting...")
