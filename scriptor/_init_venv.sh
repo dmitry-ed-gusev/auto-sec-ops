@@ -35,7 +35,8 @@ printf "\tDone.\n"
 # -- update pip (if necessary)
 printf "\n-- Upgrading pip and other core dependencies --\n"
 python -m pip install --upgrade --no-cache-dir --verbose pip
-pip install --upgrade --no-cache-dir --verbose virtualenv pipenv pytest jupyter jupyterlab notebook pipx
+pip install --upgrade --no-cache-dir --verbose virtualenv pipenv pytest jupyter jupyterlab notebook \
+    pip setuptools build twine
 printf "\tDone.\n"
 
 # -- create new virtual environment

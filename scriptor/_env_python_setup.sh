@@ -92,8 +92,10 @@ fi
 
 # -- STEP II. Installing necessary core dependencies/libraries/modules
 printf "\n--- Installing (if not installed) and upgrading core dependencies to the global env ---\n\n"
-${CMD_PIP} --no-cache-dir install virtualenv pipenv pytest jupyter pipx
-${CMD_PIP} --no-cache-dir install --upgrade virtualenv pipenv pytest jupyter pipx
+${CMD_PIP} --no-cache-dir install virtualenv pipenv pytest jupyter jupyterlab notebook pipx \
+    setuptools build twine
+${CMD_PIP} --no-cache-dir install --upgrade virtualenv pipenv pytest jupyter jupyterlab notebook pipx \
+    setuptools build twine
 printf "\nInstallation is done!\n"
 # -- execute [pipx ensurepath] + [pipx upgrade-all] - all pipx binaries to be on PATH + upgrade
 printf "\nExecuting [pipx ensurepath]...\n"
