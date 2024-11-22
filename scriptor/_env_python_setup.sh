@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# cSpell: disable
+
 #############################################################################################################
 #
 #   General python environment setup/reset script. Script can be used to re-create python general/global
